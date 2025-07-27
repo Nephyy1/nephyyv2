@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import "nes.css/css/nes.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  font-family: 'Press Start 2P', cursive;
+  color: #fff;
+  background-color: #6b8cff; /* Warna langit Mario */
+}
