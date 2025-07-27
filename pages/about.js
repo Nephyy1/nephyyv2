@@ -1,45 +1,60 @@
 import { motion } from 'framer-motion';
+import { Code, Database, Smartphone, PenTool } from 'lucide-react';
+
+const skills = [
+  { icon: <Code className="text-cyan" />, name: 'Frontend', items: ['React', 'Next.js', 'Tailwind', 'TypeScript'] },
+  { icon: <Database className="text-pink" />, name: 'Backend', items: ['Node.js', 'Express', 'PostgreSQL', 'Firebase'] },
+  { icon: <PenTool className="text-purple" />, name: 'UI/UX Design', items: ['Figma', 'Prototyping', 'Wireframing'] },
+  { icon: <Smartphone className="text-cyan" />, name: 'Mobile', items: ['React Native', 'Responsive Design'] },
+];
 
 export default function About() {
-  const skills = ['JavaScript', 'React', 'Next.js', 'Tailwind CSS', 'Figma', 'Node.js'];
-
   return (
-    <div>
-      <h2 className="text-5xl font-press-start mb-8 text-center text-retro-primary">About Me</h2>
-      <div className="grid md:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-xl leading-relaxed mb-4">
-            Hello! I'm a passionate web developer with a love for retro aesthetics and interactive user experiences. My goal is to build things that are not only functional but also fun to use.
-          </p>
-          <p className="text-xl leading-relaxed">
-            When I'm not coding, you can find me exploring classic video games, listening to synthwave, or experimenting with pixel art.
-          </p>
-        </motion.div>
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-3xl font-press-start text-retro-accent mb-4">My Skills</h3>
-          <div className="flex flex-wrap gap-3">
-            {skills.map((skill, i) => (
-              <motion.span
-                key={skill}
-                className="bg-retro-secondary text-white px-4 py-2 text-lg"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-              >
-                {skill}
-              </motion.span>
-            ))}
-          </div>
-        </motion.div>
+    <section className="max-w-4xl mx-auto">
+      <motion.h2
+        initial={{ y: -30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="font-display text-4xl font-bold text-center mb-4 text-lightest-slate"
+      >
+        <span className="text-cyan font-mono text-2xl mr-2">01.</span>
+        Tentang Saya
+      </motion.h2>
+       <div className="w-24 h-px bg-lightest-navy mx-auto mb-12"></div>
+
+      <motion.p
+        initial={{ y: -30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2}}
+        className="text-center text-lg text-slate mb-16"
+      >
+        Perpaduan antara kreativitas dan kode. Inilah keahlian yang saya miliki.
+      </motion.p>
+
+      <div className="grid md:grid-cols-2 gap-8">
+        {skills.map((skill, i) => (
+          <motion.div
+            key={skill.name}
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.15 }}
+            className="glass-card bg-light-navy p-6 rounded-lg"
+          >
+            <div className="flex items-center mb-4">
+              <div className="p-2 bg-navy rounded-full mr-4">{skill.icon}</div>
+              <h3 className="font-display text-xl text-lightest-slate">{skill.name}</h3>
+            </div>
+            <ul className="flex flex-wrap gap-2">
+              {skill.items.map(item => (
+                <li key={item} className="text-sm font-mono text-slate bg-lightest-navy/50 px-3 py-1 rounded-full">{item}</li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
       </div>
-    </div>
+    </section>
   );
-}
+          }
