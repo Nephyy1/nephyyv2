@@ -1,35 +1,49 @@
 import ProjectCard from '../components/ProjectCard';
+import { motion } from 'framer-motion';
 
 const myProjects = [
   {
-    title: 'Retro Arcade',
-    description: 'A collection of classic arcade games built with JavaScript and HTML5 Canvas.',
-    tech: ['JavaScript', 'HTML5', 'CSS'],
+    title: 'Project Nebula',
+    description: 'Platform analitik data canggih dengan visualisasi real-time, dirancang untuk skalabilitas dan performa tinggi.',
+    tech: ['Next.js', 'TypeScript', 'D3.js', 'PostgreSQL'],
+    github: '#',
     link: '#',
   },
   {
-    title: 'Synthwave Player',
-    description: 'A web-based music player for synthwave tracks with a visualizer.',
-    tech: ['React', 'Web Audio API', 'Styled Components'],
+    title: 'Cyber-Mart',
+    description: 'Sebuah E-commerce dengan tema futuristik, mengintegrasikan pembayaran modern dan pengalaman pengguna yang imersif.',
+    tech: ['React', 'Node.js', 'Stripe API', 'Framer Motion'],
+    github: '#',
     link: '#',
   },
   {
-    title: 'Pixel Art Editor',
-    description: 'An online editor for creating and sharing pixel art with a retro interface.',
-    tech: ['Next.js', 'Tailwind CSS', 'Firebase'],
-    link: '#',
+    title: 'RetroWave API',
+    description: 'REST API publik yang menyediakan data tentang musik, film, dan game dari era 80-an, lengkap dengan dokumentasi.',
+    tech: ['Node.js', 'Express', 'MongoDB', 'Swagger'],
+    github: '#',
+    link: null,
   },
 ];
 
 export default function Projects() {
   return (
-    <div>
-      <h2 className="text-5xl font-press-start mb-12 text-center text-retro-primary">My Projects</h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {myProjects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
+    <section className="max-w-5xl mx-auto">
+      <motion.h2
+        initial={{ y: -30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="font-display text-4xl font-bold text-center mb-4 text-lightest-slate"
+      >
+        <span className="text-cyan font-mono text-2xl mr-2">02.</span>
+        Proyek Pilihan
+      </motion.h2>
+      <div className="w-24 h-px bg-lightest-navy mx-auto mb-12"></div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {myProjects.map((project) => (
+          <ProjectCard key={project.title} {...project} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
