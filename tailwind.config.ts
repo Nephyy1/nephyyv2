@@ -12,17 +12,25 @@ const config: Config = {
         retro: ["var(--font-press-start)"],
       },
       colors: {
-        'retro-bg': '#1a1a2e',
-        'retro-purple': '#9b59b6',
-        'retro-pink': '#e94560',
-        'retro-cyan': '#00f5d4',
+        'retro-bg': '#0d0221',
+        'retro-purple': '#a642f8',
+        'retro-pink': '#ff00ff',
+        'retro-cyan': '#00d0ff',
         'retro-text': '#f4f4f4',
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      keyframes: {
+        flicker: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.8' },
+        },
       },
+      animation: {
+        flicker: 'flicker 1.5s infinite',
+      },
+      dropShadow: {
+        'glow-cyan': '0 0 10px rgba(0, 208, 255, 0.7)',
+        'glow-pink': '0 0 12px rgba(255, 0, 255, 0.8)',
+      }
     },
   },
   plugins: [],
