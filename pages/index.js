@@ -1,36 +1,46 @@
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Home() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center text-center h-full">
-      <motion.h1
-        className="text-6xl md:text-8xl font-press-start mb-4 bg-gradient-to-r from-retro-primary to-retro-accent text-transparent bg-clip-text"
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7 }}
-      >
-        YOUR NAME
-      </motion.h1>
-      <motion.p
-        className="text-2xl md:text-3xl font-vt323 text-retro-text mb-8"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-      >
-        A Creative Web Developer & UI/UX Enthusiast
+    <motion.div
+      className="flex flex-col justify-center min-h-[60vh] max-w-3xl mx-auto"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.p variants={itemVariants} className="text-md md:text-lg text-cyan font-mono mb-4">
+        Hai, nama saya
       </motion.p>
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <a
-          href="/projects"
-          className="bg-retro-primary text-white font-bold py-3 px-8 text-xl shadow-retro transition-all duration-300 hover:bg-retro-accent hover:shadow-retro-hover transform hover:-translate-y-1"
-        >
-          See My Work
-        </a>
+      <motion.h1 variants={itemVariants} className="text-4xl sm:text-6xl md:text-7xl font-display font-bold text-lightest-slate">
+        Nama Anda.
+      </motion.h1>
+      <motion.h2 variants={itemVariants} className="text-3xl sm:text-5xl md:text-6xl font-display font-bold text-slate mt-2">
+        Saya membangun hal-hal untuk web.
+      </motion.h2>
+      <motion.p variants={itemVariants} className="mt-6 max-w-xl text-slate">
+        Saya seorang web developer yang berspesialisasi dalam menciptakan pengalaman digital yang modern, responsif, dan menarik. Saat ini, saya fokus pada pengembangan produk web yang inovatif.
+      </motion.p>
+      <motion.div variants={itemVariants} className="mt-12">
+        <Link href="/contact">
+          <a className="text-cyan border border-cyan rounded px-8 py-4 font-mono hover:bg-cyan/10 transition-colors duration-300">
+            Hubungi Saya
+          </a>
+        </Link>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
