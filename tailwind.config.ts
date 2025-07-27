@@ -1,38 +1,27 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
-      fontFamily: {
-        retro: ["var(--font-press-start)"],
-      },
       colors: {
-        'retro-bg': '#0d0221',
-        'retro-purple': '#a642f8',
-        'retro-pink': '#ff00ff',
-        'retro-cyan': '#00d0ff',
-        'retro-text': '#f4f4f4',
+        'retro-bg': '#2d2d2d',
+        'retro-text': '#e0e0e0',
+        'retro-primary': '#ff7a18',
+        'retro-secondary': '#af5200',
+        'retro-accent': '#00a8a8',
       },
-      keyframes: {
-        flicker: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.8' },
-        },
+      fontFamily: {
+        'press-start': ['"Press Start 2P"', 'cursive'],
+        'vt323': ['"VT323"', 'monospace'],
       },
-      animation: {
-        flicker: 'flicker 1.5s infinite',
+      boxShadow: {
+        'retro': '8px 8px 0px #af5200',
+        'retro-hover': '10px 10px 0px #ff7a18',
       },
-      dropShadow: {
-        'glow-cyan': '0 0 10px rgba(0, 208, 255, 0.7)',
-        'glow-pink': '0 0 12px rgba(255, 0, 255, 0.8)',
-      }
     },
   },
   plugins: [],
-};
-export default config;
+}
