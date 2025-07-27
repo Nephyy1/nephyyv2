@@ -8,16 +8,17 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-navy">
+       <div className="fixed top-0 left-0 w-full h-full bg-gradient-radial from-light-navy/50 via-navy to-navy -z-10"></div>
       <Header />
       <AnimatePresence mode="wait">
         <motion.main
           key={router.route}
-          initial={{ opacity: 0, x: -200 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 200 }}
-          transition={{ duration: 0.5 }}
-          className="flex-grow container mx-auto px-6 py-12"
+          initial={{ opacity: 0, filter: 'blur(5px)' }}
+          animate={{ opacity: 1, filter: 'blur(0px)' }}
+          exit={{ opacity: 0, filter: 'blur(5px)' }}
+          transition={{ duration: 0.4 }}
+          className="flex-grow container mx-auto px-6 py-16 md:py-24"
         >
           <Component {...pageProps} />
         </motion.main>
