@@ -1,16 +1,16 @@
-import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { Github, Twitter, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-transparent py-8 mt-16 border-t-2 border-retro-secondary">
-      <div className="container mx-auto text-center text-retro-text">
+    <footer className="w-full py-6">
+      <div className="container mx-auto px-6 text-center text-slate">
         <div className="flex justify-center space-x-6 mb-4">
-          <a href="#" className="text-3xl hover:text-retro-primary transition-colors"><FaGithub /></a>
-          <a href="#" className="text-3xl hover:text-retro-primary transition-colors"><FaTwitter /></a>
-          <a href="#" className="text-3xl hover:text-retro-primary transition-colors"><FaLinkedin /></a>
+          <a href="#" aria-label="Github" className="hover:text-cyan transition-colors"><Github /></a>
+          <a href="#" aria-label="Twitter" className="hover:text-cyan transition-colors"><Twitter /></a>
+          <a href="#" aria-label="Linkedin" className="hover:text-cyan transition-colors"><Linkedin /></a>
         </div>
-        <p className="font-vt323">&copy; 2025 Your Name. All rights reserved.</p>
-        <p className="font-vt323 text-sm mt-2">Powered by Next.js & Vercel</p>
+        <p className="text-sm">Didesain & Dibangun oleh Nama Anda</p>
+        <p className="text-xs mt-1">© {new Date().getFullYear()} - Ditenagai oleh Next.js & Vercel</p>
       </div>
     </footer>
   );
